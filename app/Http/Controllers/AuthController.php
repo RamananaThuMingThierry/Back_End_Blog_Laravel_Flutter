@@ -44,7 +44,7 @@ class AuthController extends Controller
         if(!Auth::attempt($attrs)){
             return response()->json([
                 'message' => 'Invalid credentials.'
-            ], 400);
+            ], 403);
         }
 
         // Return user & token in response
