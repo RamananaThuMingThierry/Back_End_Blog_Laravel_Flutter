@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
+
 {
     
     // Register user
@@ -17,7 +19,7 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6|confirmed'
         ]);
-
+        
         // create user
         $user = User::create([
             'name' => $attrs['name'],

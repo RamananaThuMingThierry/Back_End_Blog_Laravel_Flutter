@@ -49,7 +49,7 @@ class PostController extends Controller
         $attrs = $request->validate([
             'body' => 'required|string'
         ]);
-
+        
         $image = $this->saveImage($request->image, 'posts');
 
         $post = Post::create([
