@@ -26,6 +26,7 @@ class PostController extends Controller
     // get single post
     public function show($id){
         
+        
         $verifier_post = Post::find($id);
 
         if($verifier_post){
@@ -44,14 +45,14 @@ class PostController extends Controller
 
     // create a post
     public function store(Request $request){
-
+        
         // validate fields
         $attrs = $request->validate([
             'body' => 'required|string'
         ]);
         
         $image = $this->saveImage($request->image, 'posts');
-
+        
         $post = Post::create([
             'body' => $attrs['body'],
             'user_id' => auth()->user()->id,

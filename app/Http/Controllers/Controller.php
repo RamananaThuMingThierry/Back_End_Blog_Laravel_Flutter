@@ -14,9 +14,9 @@ class Controller extends BaseController
 
     public function saveImage($image, $path = 'public'){
         
-        if($image) return null;
+        if(!$image) return null;
 
-        $filename = time(). '.png';
+        $filename = time().'.png';
 
         // Save Image
         Storage::disk($path)->put($filename, base64_decode($image));
